@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         define();
     }
-
+//check
     private void define() {
         activity = this;
         rootFL = findViewById(R.id.rootFL);
