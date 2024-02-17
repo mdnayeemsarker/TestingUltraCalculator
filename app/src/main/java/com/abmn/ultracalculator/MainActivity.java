@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText firstEdt, secondEdt;
     private Button plusBtn, minusBtn, multiplicationBtn, dividedBtn;
 
+    Calculator calculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         minusBtn = findViewById(R.id.minusBtn);
         multiplicationBtn = findViewById(R.id.multiplicationBtn);
         dividedBtn = findViewById(R.id.dividedBtn);
-
+        calculator = new Calculator();
         work();
     }
 
@@ -68,23 +69,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void plusMethode(String first, String second) {
-        int result = Integer.parseInt(first) + Integer.parseInt(second);
-        showSnackbar(rootFL, "Addition Result is : " + result);
+//        int result = Integer.parseInt(first) + Integer.parseInt(second);
+        int result = calculator.plus(Integer.parseInt(first), Integer.parseInt(second));
+        calculator.showSnackbar(rootFL, "Addition Result is : " + result);
     }
     private void minusMethode(String first, String second) {
-        int result = Integer.parseInt(first) - Integer.parseInt(second);
-        showSnackbar(rootFL, "Subtraction Result is : " + result);
+//        int result = Integer.parseInt(first) - Integer.parseInt(second);
+        int result = calculator.minus(Integer.parseInt(first), Integer.parseInt(second));
+        calculator.showSnackbar(rootFL, "Subtraction Result is : " + result);
     }
     private void multiplicationMethode(String first, String second) {
-        int result = Integer.parseInt(first) * Integer.parseInt(second);
-        showSnackbar(rootFL, "multiplication Result is : " + result);
+        int result = calculator.multiple(Integer.parseInt(first), Integer.parseInt(second));
+        calculator.showSnackbar(rootFL, "multiplication Result is : " + result);
     }
     private void dividedMethode(String first, String second) {
-        int result = Integer.parseInt(first) / Integer.parseInt(second);
-        showSnackbar(rootFL, "multiplication Result is : " + result);
-    }
-    private void showSnackbar(FrameLayout rootFL, String s) {
-        Snackbar.make(rootFL, "Addition Result is : " + s, Snackbar.LENGTH_SHORT).show();
+        int result = calculator.divided(Integer.parseInt(first),Integer.parseInt(second));
+        calculator.showSnackbar(rootFL, "multiplication Result is : " + result);
     }
     public static void hideKeyboard(Activity activity, View root) {
         try {
