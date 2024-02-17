@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
-import com.google.android.material.snackbar.Snackbar;
-
 public class MainActivity extends AppCompatActivity {
     private Activity activity;
     private FrameLayout rootFL;
@@ -27,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         define();
     }
-//check
     private void define() {
         activity = this;
         rootFL = findViewById(R.id.rootFL);
